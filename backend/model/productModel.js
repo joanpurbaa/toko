@@ -4,7 +4,7 @@ const {Schema} = mongoose;
 
 const productSchema = new Schema({
   name: String,
-  price: mongoose.Types.Decimal128
+  price: String
 })
 
 const product = mongoose.model("product", productSchema);
