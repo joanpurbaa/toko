@@ -13,6 +13,14 @@ const Home = () => {
     setData(result.data);
   };
 
+  const deleteProduct = async (productId) => {
+    try {
+      await axios.delete("http://localhost:3000/delete/" + productId);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const formatRupiah = (value) => {
     return new Intl.NumberFormat("id-ID", {
       style: "currency",
@@ -52,7 +60,12 @@ const Home = () => {
                   {formatRupiah(parseFloat(datu.price))}
                 </Table.Cell>
                 <Table.Cell className="flex">
-                  <a href={`http://localhost:3000/delete` + datu.id}>
+                  <a
+                    onClick={() => {
+                      deleteProduct(datu._id);
+                      location.reload();
+                    }}
+                  >
                     <MdDelete className="w-8 h-8 cursor-pointer text-red-500" />
                   </a>
                 </Table.Cell>

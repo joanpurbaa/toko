@@ -10,7 +10,7 @@ const route = express.Router();
 
 route.post("/add", add);
 route.get("/show", show);
-route.delete("/delete/:lombaid", deleteProduct);
+route.delete("/delete/:productid", deleteProduct);
 route.delete("/deleteall", deleteAll);
 
 export default route;

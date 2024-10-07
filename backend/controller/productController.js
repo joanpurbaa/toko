@@ -25,7 +25,7 @@ export const show = async (req, res) => {
 
 export const deleteProduct = async (req, res) => {
   try {
-    await toko.deleteOne({ id: req.params.productid });
+    await toko.deleteOne({ _id: req.params.productid });
 
     res.sendStatus(200);
   } catch (error) {
